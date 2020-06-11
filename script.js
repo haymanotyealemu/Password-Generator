@@ -41,6 +41,15 @@ function  generatePassword() {
   var confirmuppercase = confirm("Click Ok if you would like to include uppercase character ?");
   var confirmnumber = confirm("Click Ok if you would like to include numeric character ?");
   var confirmspecialcharacter = confirm("Click Ok if u would like to include special character ?");
+
+  // Loop if answer is outside the parameters
+  while (confirmlowercase === false && confirmuppercase === false && confirmnumber === false && confirmspecialcharacter === false) {
+    alert("You must select at least one character!");
+  }
+  var confirmlowercase = confirm("Click Ok if you would like to include lowercase character ?");
+  var confirmuppercase = confirm("Click Ok if you would like to include uppercase character ?");
+  var confirmnumber = confirm("Click Ok if you would like to include numeric character ?");
+  var confirmspecialcharacter = confirm("Click Ok if u would like to include special character ?");
 }
 
 
