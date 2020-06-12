@@ -5,19 +5,13 @@ var generateBtn = document.querySelector("#generate");
   document.querySelector("#generate").addEventListener("click" , writePassword);
 
   // Make an Array for each character types.
-  var alphaLower = [function getRandomLower() { 
-    return String.fromCharCode(Math.floor(Math.random()*26) + 97);
-    }];
-  var alphaUpper = [function getRandomUpper() { 
-  return String.fromCharCode(Math.floor(Math.random()*26) + 65);
-    }];
-var numeric = [function getRandomNumber() { 
-      return String.fromCharCode(Math.floor(Math.random()*10) + 48);
-    }];
-var specialCharacter = [function getRandomSpecialCharacter() { 
-    var symbols = '!#$%&*+ (), -./:;<=>?@[]^_`{|}~';
-    return symbols[Math.floor(Math.random()* symbols.length)];
-  }];
+  var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+    ];
+  var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var specialCharacter = ["!", "#", "$", "%", "&", "*", "+", ".", "@", "/", ":", ";", "<", "=", ">", "?", "[", "]", "^", "_", "`", "{", "|", "}", "~", "'", ];
+    
+  
       
 // Variable Declaration
 
@@ -28,9 +22,9 @@ var confirmnumber;
 var confirmspecialcharacter;
 
 // Ask for length of password
-var lengthPass = prompt("How many characters will your password be? The length of the password must  have 8 character and not morethan 128 character");
+
 function  generatePassword() {
-  var confirmLength = (prompt("How many characters would you like your password to be?"));
+  var confirmLength = Number((prompt("How many characters would you like your password to be?")));
   // loop length of password times.
   while (confirmLength <= 7 || confirmLength >= 129){
           alert("Password length must have atleast 8 character and not morethan 128 character. Try again!" );
@@ -45,11 +39,34 @@ function  generatePassword() {
   // Loop if answer is outside the parameters
   while (confirmlowercase === false && confirmuppercase === false && confirmnumber === false && confirmspecialcharacter === false) {
     alert("You must select at least one character!");
-  }
+  
   var confirmlowercase = confirm("Click Ok if you would like to include lowercase character ?");
   var confirmuppercase = confirm("Click Ok if you would like to include uppercase character ?");
   var confirmnumber = confirm("Click Ok if you would like to include numeric character ?");
   var confirmspecialcharacter = confirm("Click Ok if u would like to include special character ?");
+  }
+  //Determine the password character.
+  var passwordCharacters = [];
+  if (confirmlowercase) {
+    passwordCharacters = passwordCharacters.concat(alphaLower);
+  }
+  if (confirmuppercase) {
+    passwordCharacters = passwordCharacters.concat(alphaUpper);
+  }
+  if (confirmlowercase) {
+    passwordCharacters = passwordCharacters.concat(numeric);
+  }
+  if (confirmlowercase) {
+    passwordCharacters = passwordCharacters.concat(specialCharacter);
+  }
+  console.log( passwordCharacters);
+  // loop for a randompassword character from array.
+
+  var randomPassword = ""
+  for (i=0; i< confirmLength; i++) {
+    var randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random()*passwordCharacters.length)];
+    console.log(randomPassword );
+  }
 }
 
 
@@ -63,8 +80,7 @@ function writePassword() {
   
   }
   
-   // Ask for length of password
-    var lengthPass = prompt("How many characters will your password be? The length of the password must have 8 character and not morethan 128 character");
+   
 
 
 //generate password 
