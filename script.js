@@ -10,7 +10,7 @@ var generateBtn = document.querySelector("#generate");
 
   var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 var specialCharacter = ["!", "#", "$", "%", "&", "*", "+", ".", "@", "/", ":", ";", "<", "=", ">", "?", "[", "]", "^", "_", "`", "{", "|", "}", "~", "'", ];
     
@@ -54,7 +54,7 @@ function  generatePassword() {
   var confirmnumber = confirm("Click Ok if you would like to include numeric character ?");
   var confirmspecialcharacter = confirm("Click Ok if u would like to include special character ?");
   }
-  //Determine the password character and using the concat() method joins two or more strings.
+  //Determine the password character and using the concat() string method joins two or more strings.
   var passwordCharacters = [];
   if (confirmlowercase) {
     passwordCharacters = passwordCharacters.concat(alphaLower);
@@ -63,7 +63,7 @@ function  generatePassword() {
     passwordCharacters = passwordCharacters.concat(alphaUpper);
   }
   if (confirmlowercase) {
-    passwordCharacters = passwordCharacters.concat(numeric);
+    passwordCharacters = passwordCharacters.concat(number);
   }
   if (confirmlowercase) {
     passwordCharacters = passwordCharacters.concat(specialCharacter);
@@ -84,7 +84,7 @@ function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
   
-    passwordText.value = password;;
+    passwordText.value = password;
   
   }
 
