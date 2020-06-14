@@ -8,7 +8,7 @@ The application is built using mainly focus on JavaScript programming language b
 
 Here is the link for the deployed application.https://haymanotyealemu.github.io/Password-Generator/
 
-
+![password-generator](https://user-images.githubusercontent.com/43423292/84581983-208c3700-adb4-11ea-97ad-7e7583d90344.PNG)
 
 
 
